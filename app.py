@@ -6,12 +6,8 @@ from titanic_model import deploy_model
 app = Flask(__name__)
 
 
-@app.route('/')
-def main():
-    return redirect('/index')
 
-
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
