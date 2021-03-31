@@ -20,8 +20,11 @@ def index():
 def prediction():
     df = process_inputs()
     proba = deploy_model(df)
-
-    return "Probability of survival is: {0:.2f}%".format(100 * proba[0, 1])
+    if round(proba[0, 1]) ==1:
+          return "Survive. Probability of survival is: {0:.2f}%".format(100 * proba[0, 1])
+    else:
+          return "Died. Probability of survival is: {0:.2f}%".format(100 * proba[0, 1])
+    
 
 
 def process_inputs():
